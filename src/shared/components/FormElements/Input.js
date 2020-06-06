@@ -49,9 +49,9 @@ const Input = props => {
   // we update the current state based on the action recieved, return the new state, useReducer() takes the new state and give it back to the component and rerender everything
   // 2nd argument of useReducer is initial state of the component, useReducer returns an array with two elements
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: props.value || '',
+    value: props.initialValue || '',
     isTouched: false,
-    isValid: props.valid || false
+    isValid: props.initialValid || false
   });
   
   const {id, onInput} = props;
