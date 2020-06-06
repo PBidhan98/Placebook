@@ -76,7 +76,3 @@ const NewPlace = () => {
 };
 
 export default NewPlace;
-
-// A hook is a normal Javascript function
-// But a function which starts with use, is a function which can share stateful logic
-// Custom Hook is a special function that react recognises, which can use useReducer or useState inside of it, which react then recognises and if state is updated in custom hook then component using custom hook is rerendered
