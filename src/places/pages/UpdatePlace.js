@@ -101,6 +101,7 @@ const UpdatePlace = () => {
       </Button>
     </form>
   );
+  
 };
 
 export default UpdatePlace;
