@@ -1,11 +1,12 @@
 // Presentational Component, it et's data from outside using props and renders it
 
 import React from 'react';
-import './UserItem.css';
-import Avatar from '../../shared/components/UIElements/Avatar';
-// going to level up in folders
 import { Link } from 'react-router-dom';
+
+import Avatar from '../../shared/components/UIElements/Avatar';
+// going two level up in folders
 import Card from '../../shared/components/UIElements/Card';
+import './UserItem.css';
 
 const UserItem = props => {
   return (
@@ -26,7 +27,7 @@ const UserItem = props => {
           <div className="user-item__info">
             <h2>{props.name}</h2>
             <h3>
-              {props.placeCount} {props.placeCount === 1 ? "Place" : "Places"}
+              {props.placeCount} {props.placeCount === 1 ? 'Place' : 'Places'}
             </h3>
           </div>
         </Link>

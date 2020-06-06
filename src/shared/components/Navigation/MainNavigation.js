@@ -1,16 +1,16 @@
 // Part of the MainHeader
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 // here we want to manage the state whether the drawer is open or not
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import MainHeader from "./MainHeader";
-import NavLinks from "./NavLinks";
-import SideDrawer from "./SideDrawer";
-import BackDrop from "../UIElements/BackDrop";
-import "./MainNavigation.css";
+import MainHeader from './MainHeader';
+import NavLinks from './NavLinks';
+import SideDrawer from './SideDrawer';
+import Backdrop from '../UIElements/Backdrop';
+import './MainNavigation.css';
 
-const MainNavigation = (props) => {
+const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   // Inititally the drawer is not open
 
@@ -31,7 +31,7 @@ const MainNavigation = (props) => {
       {/* Normally the SideDrawer would be rendered as part of the MainNavigation therefore wherever this MainNavigation is rendered */}
       {/* With a portal we can mark a new place in index.html where we want to render the portal content */}
       {/* Conditionally render content in React */}
-      {drawerIsOpen && <BackDrop onClick={closeDrawerHandler} />}
+      {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
       {/* {drawerIsOpen && (
         <SideDrawer>
           <nav className="main-navigation__drawer-nav">
@@ -50,19 +50,21 @@ const MainNavigation = (props) => {
       <MainHeader>
         {/* all the content here will be rendered in the MainHeader */}
         {/* when we click the button then we do open the drawer */}
-        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={openDrawerHandler}
+        >
           {/* which will open the Side drawer */}
           {/* Three empty that will work as bars, we will add styling which renders the button as Hamburger item where every span will be one part of the hamburger */}
           <span />
           <span />
           <span />
-        </button>
+          </button>
         <h1 className="main-navigation__title">
           {/* Header of the App should be clickable, thus we will use Link component of react-router-dom */}
           <Link to="/">Placebook</Link>
         </h1>
         <nav className="main-navigation__header-nav">
-          {/* Nav links */}
           <NavLinks />
         </nav>
       </MainHeader>

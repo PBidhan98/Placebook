@@ -6,8 +6,8 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
-import "./PlaceForm.css";
 import { useForm } from "../../shared/hooks/form-hook";
+import "./PlaceForm.css";
 
 const NewPlace = () => {
   const [formState, inputHandler] = useForm(
@@ -24,7 +24,7 @@ const NewPlace = () => {
       address: {
         value: "",
         isValid: false,
-      }
+      },
       // nested object which stores the information about the validity of individual inputs
     },
     false
@@ -33,8 +33,7 @@ const NewPlace = () => {
 
   const placeSubmitHandler = (event) => {
     event.preventDefault();
-    // send data to server
-    console.log(formState.inputs);
+    console.log(formState.inputs); // send this to the backend!
   };
 
   return (
@@ -55,7 +54,7 @@ const NewPlace = () => {
         element="textarea"
         label="Description"
         validators={[VALIDATOR_MINLENGTH(5)]}
-        errorText="Please enter a valid description (atleast 5 characters)."
+        errorText="Please enter a valid description (at least 5 characters)."
         onInput={inputHandler}
       />
       <Input
@@ -63,7 +62,6 @@ const NewPlace = () => {
         element="input"
         label="Address"
         validators={[VALIDATOR_REQUIRE()]}
-        // VALIDATOR_REQUIRE() returns a validator configuration object
         errorText="Please enter a valid address."
         // we will not check here that address exists, we will later do it at the backend
         onInput={inputHandler}

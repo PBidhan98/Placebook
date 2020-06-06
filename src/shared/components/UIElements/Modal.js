@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
-import BackDrop from './BackDrop';
+import Backdrop from './Backdrop';
 import './Modal.css';
 
 // second component for internal use
@@ -33,7 +33,7 @@ const ModalOverlay = props => {
 const Modal = props => {
   return (
     <React.Fragment>
-      {props.show && <BackDrop onClick={props.onCancel} />}
+      {props.show && <Backdrop onClick={props.onCancel} />}
       <CSSTransition
         in={props.show}
         mountOnEnter

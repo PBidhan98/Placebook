@@ -1,7 +1,7 @@
 // combines both <label> and <input>, also has built in user input validation
 // we also have 3rd party libraries like Formik, which can be used in react to get form functionality for free, with input validations
 
-import React, { useReducer, useEffect } from "react";   
+import React, { useReducer, useEffect } from 'react';
 // when we have two kind of connected states, the validitiy depends on input value then using useReducer hook is better
 // useReducer allows to manage state in a component and also gives a function we can call to update the state and rerender the component
 // but difference btw useState and useReducer is, with useReducer we can manage more complex state with ease, can write some logic that runs whenever state is changed and do complex updates than just set a new value
@@ -9,8 +9,8 @@ import React, { useReducer, useEffect } from "react";
 // useEffect allows to run some logic when some dependency is changed, we can also used it to run something after the first render as we didi it in google maps
 // we can also use it to run some logic whenever the input value or validity changes, becoz they change together and send back the new value back to the NewPlace component
 
-import { validate } from "../../util/validators";
-import "./Input.css";
+import { validate } from '../../util/validators';
+import './Input.css';
 
 // reducer function(currentstate, action)
 const inputReducer = (state, action) => {
@@ -27,11 +27,11 @@ const inputReducer = (state, action) => {
         // whether input is valid or not
         isValid: validate(action.val, action.validators)
       };
-    case 'TOUCH':{
+      case 'TOUCH': {
       return {
         ...state,
-        isTouched: true
-      }
+        isTouched: true,
+      };
     }
     default:
       // returning unchanged state, incase we dispatch some action which we don't handle explicitely in above case
@@ -53,36 +53,36 @@ const Input = props => {
     isTouched: false,
     isValid: props.initialValid || false
   });
-  
-  const {id, onInput} = props;
-  const {value, isValid} = inputState;
+
+  const { id, onInput } = props;
+  const { value, isValid } = inputState;
   // 1st argument is the function to be executed
   // 2nd is array of dependencies, the things that should trigger this function
   useEffect(() => {
-    onInput(id, value, isValid)
+    onInput(id, value, isValid);
   }, [id, value, isValid, onInput]);
 
   // changeHandler which is triggered whenever the user enters something, we bind this function on the element
-  const changeHandler = event => {
+  const changeHandler = (event) => {
     // when it is triggered want to store the value and validate
     // so we have to manage more than one state snd two states are kindoff connected, we can use {useState}
     dispatch({
       type: 'CHANGE',
       val: event.target.value,
       // passing new value to set the value of input entered by user
-      validators: props.validators
+      validators: props.validators,
     });
     // passed action object, event.target is the input element on which this event was triggered
   };
 
-  const touchHandler = () =>{
+  const touchHandler = () => {
     dispatch({
       type: 'TOUCH'
     });
   };
 
   const element =
-    props.element === "input" ? (
+    props.element === 'input' ? (
       <input
         id={props.id}
         type={props.type}
@@ -104,17 +104,17 @@ const Input = props => {
       />
     );
 
-  return (
-    <div
-      className={`form-control ${
-        !inputState.isValid && inputState.isTouched && "form-control--invalid"
-      }`}
-    >
-      <label htmlFor={props.id}>{props.label}</label>
-      {element}
-      {!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
-    </div>
-  );
-};
-
-export default Input;
+    return (
+      <div
+        className={`form-control ${!inputState.isValid && inputState.isTouched &&
+          'form-control--invalid'}`}
+      >
+        <label htmlFor={props.id}>{props.label}</label>
+        {element}
+        {!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
+      </div>
+    );
+  };
+  
+  export default Input;
+  

@@ -27,7 +27,8 @@ const SideDrawer = props => {
       <aside className="side-drawer" onClick={props.onClick}>{props.children}</aside>
     </CSSTransition>
   );
-  return ReactDOM.createPortal(content, document.getElementById("drawer-hook"));
+
+  return ReactDOM.createPortal(content, document.getElementById('drawer-hook'));
   // here we tell react which content to render where
 };
 

@@ -2,7 +2,6 @@
   z-index: 100;
   position: fixed;
   top: 22vh;
-  /* 22% from the top of viewport height */
   left: 10%;
   width: 80%;
   background: white;

@@ -16,7 +16,7 @@ const Users = () => {
         },
         {
             id: 'u2',
-            name: 'Yashpreet Bathla',
+            name: 'Pratik Bidhan',
             image: 'https://i.pinimg.com/originals/6b/e2/61/6be2616cc58da2ceb9d87eece0390ae1.jpg',
             places: 6
         }
